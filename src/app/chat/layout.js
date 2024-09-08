@@ -10,10 +10,10 @@ const layout = ({ children }) => {
       </div>
 
       <div className="w-[75%] h-[100vh]">
-        <div className=" h-[10%] bg-[#cde8e5]">
+        {/* <div className=" h-[10%] bg-[#cde8e5]">
           <ChatHeader />
-        </div>
-        <div className=" h-[90%]  bg-neutral-300">{children}</div>
+        </div> */}
+        <div className=" h-[100%]  bg-neutral-300">{children}</div>
       </div>
     </div>
   );

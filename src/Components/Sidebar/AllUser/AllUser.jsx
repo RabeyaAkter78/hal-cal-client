@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import SingleUser from "../Singleuser/SingleUser";
 
 const AllUser = () => {
@@ -9,7 +8,7 @@ const AllUser = () => {
   const [loggedinUser, setLoggedinUser] = useState(null);
   const [selectedUser, setSelectedUser] = useState(null);
 
-  console.log(selectedUser);
+  // console.log(allUsers);
   useEffect(() => {
     if (typeof window !== "undefined") {
       const storedUser = localStorage.getItem("user");
@@ -35,25 +34,29 @@ const AllUser = () => {
             setAllUsers([]);
           }
         })
-        .catch((error) => console.log("Error Fetching user", error));
+        .catch((error) => console.log("Error Fetching user 38", error));
     }
   }, [loggedinUser]);
 
   const handleUserSelect = (user) => {
-    console.log("Selected user:", user);
+    console.log("Selected user 43:", user);
   };
 
   return (
     <div>
       <div className="flex-1 overflow-y-auto p-4">
-        {allUsers.map((user) => (
-          <SingleUser
-            key={user._id}
-            isSelected={selectedUser === user._id}
-            onClick={() => setAllUsers(user._id)}
-            user={user}
-          ></SingleUser>
-        ))}
+        {Array.isArray(allUsers) && allUsers.length > 0 ? (
+          allUsers.map((user) => (
+            <SingleUser
+              key={user._id}
+              isSelected={selectedUser === user._id}
+              onClick={() => setSelectedUser(user._id)}
+              user={user}
+            />
+          ))
+        ) : (
+          <p>No users found</p>
+        )}
       </div>
     </div>
   );

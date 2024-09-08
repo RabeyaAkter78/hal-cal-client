@@ -1,9 +1,9 @@
-import { Avatar } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const SingleUser = ({ user, onClick, isSelected }) => {
+  // console.log(user);
   const formattedTime = user?.time
     ? format(new Date(user.time), "hh:mm a")
     : "";
