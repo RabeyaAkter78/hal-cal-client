@@ -94,7 +94,7 @@ const DynamicUserItem = ({ selectedUser }) => {
     <div>
       {selectedUser ? (
         <div className="h-screen relative">
-          <div className="h-[10%]  flex items-center justify-between border-b border-gray-300 bg-[#cde8e5]">
+          <div className="h-[5%]  flex items-center justify-between border-b border-gray-300 bg-[#cde8e5]">
             <div className="flex items-center gap-2">
               <Image
                 src={`http://localhost:5000${selectedUser?.avatarUrl}`}
@@ -133,7 +133,7 @@ const DynamicUserItem = ({ selectedUser }) => {
               {/* Reference to scroll to this div */}
             </div>
           </div>
-          <div className="flex w-full justify-center ">
+          <div className="flex w-full justify-center pt-2">
             <input
               value={text}
               onChange={(e) => setText(e.target.value)}
