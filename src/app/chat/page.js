@@ -1,6 +1,12 @@
-import ChatMessage from "@/Components/ChatMessage/ChatMessage";
 import React from "react";
+import ChatMessage from "@/Components/ChatMessage/ChatMessage";
 
-export default function ChatPage() {
-  return <div><ChatMessage/></div>;
-}
+const ChatPage = () => {
+  return (
+    <div>
+      <ChatMessage />
+    </div>
+  );
+};
+
+export default ChatPage;
