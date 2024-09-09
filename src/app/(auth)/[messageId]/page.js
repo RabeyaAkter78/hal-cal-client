@@ -86,7 +86,7 @@ const DynamicUserItem = ({ selectedUser }) => {
     <div>
       {selectedUser ? (
         <div className="h-screen relative">
-          <div className="h-[5%]  flex items-center justify-between border-b border-gray-300 bg-[#cde8e5]">
+          <div className="h-[10%]  flex items-center justify-between border-b border-gray-300 bg-[#cde8e5]">
             <div className="flex items-center gap-2">
               <Image
                 src={`http://localhost:5000${selectedUser?.avatarUrl}`}
@@ -106,7 +106,7 @@ const DynamicUserItem = ({ selectedUser }) => {
               <BsThreeDotsVertical className="h-5 w-5 text-[#707991]" />
             </div>
           </div>
-          <div className="pt-4 pb-5 px-10 h-[75%] overflow-y-scroll bg-[#02040a]">
+          <div className="pt-4 pb-5 px-10 h-[90%] overflow-y-scroll bg-[#02040a]">
             <div className="flex flex-col">
               {allReceivedMessage.map((message, index) => (
                 <div key={index} className="mt-6 w-full">

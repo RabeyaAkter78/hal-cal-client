@@ -30,7 +30,7 @@ const ChatMessage = () => {
 
   return (
     <div className="container mx-auto flex h-screen">
-      <div className="w-[25%] h-[80%] bg-[#cde8e5]">
+      <div className="w-[25%] h-[100%] bg-[#cde8e5]">
         <LoggedInUserprofile />
         <SiddeBarHeader />
         <AllUser onUserSelect={setSelectedUser} />
