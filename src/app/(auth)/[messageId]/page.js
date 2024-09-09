@@ -1,6 +1,6 @@
 "use client";
 import io from "socket.io-client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { IoMdSend } from "react-icons/io";
 import { TbMessageSearch } from "react-icons/tb";
 import { IoCall } from "react-icons/io5";
@@ -13,6 +13,7 @@ const DynamicUserItem = ({ selectedUser }) => {
   const [allReceivedMessage, setAllReceivedMessage] = useState([]);
   const [socket, setSocket] = useState(null);
   const [singleUser, setSingleUser] = useState(null);
+  const messageEndRef = useRef(null); // tracking the end of the message list
 
   // Load user from localStorage
   useEffect(() => {
@@ -68,6 +69,13 @@ const DynamicUserItem = ({ selectedUser }) => {
     }
   }, [selectedUser?._id]);
 
+  // Auto-scroll to the bottom when new messages arrive
+  useEffect(() => {
+    if (messageEndRef.current) {
+      messageEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [allReceivedMessage]);
+
   // Send message
   const sendMessage = () => {
     if (text.trim() !== "" && socket && selectedUser) {
@@ -106,7 +114,7 @@ const DynamicUserItem = ({ selectedUser }) => {
               <BsThreeDotsVertical className="h-5 w-5 text-[#707991]" />
             </div>
           </div>
-          <div className="pt-4 pb-5 px-10 h-[90%] overflow-y-scroll bg-[#02040a]">
+          <div className="pt-4 pb-5 px-10 h-[80%] overflow-y-scroll bg-[#02040a]">
             <div className="flex flex-col">
               {allReceivedMessage.map((message, index) => (
                 <div key={index} className="mt-6 w-full">
@@ -121,9 +129,11 @@ const DynamicUserItem = ({ selectedUser }) => {
                   </span>
                 </div>
               ))}
+              <div ref={messageEndRef} />{" "}
+              {/* Reference to scroll to this div */}
             </div>
           </div>
-          <div className="flex w-full justify-center -mt-16">
+          <div className="flex w-full justify-center ">
             <input
               value={text}
               onChange={(e) => setText(e.target.value)}
