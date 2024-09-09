@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-
+import io from "socket.io-client";
 const AllUser = ({ onUserSelect }) => {
   const [allUsers, setAllUsers] = useState([]);
   const [loggedinUser, setLoggedinUser] = useState(null);
   const [selectedUser, setSelectedUser] = useState(null);
-
+  const [socket, setSocket] = useState(null);
   useEffect(() => {
     if (typeof window !== "undefined") {
       const storedUser = localStorage.getItem("user");
@@ -42,6 +42,18 @@ const AllUser = ({ onUserSelect }) => {
     setSelectedUser(user._id);
     onUserSelect(user);
   };
+
+  // socket:
+  useEffect(() => {
+    const socket = io("http://localhost:5000");
+    setSocket(socket);
+    // Listen for the 'newUser' event from the server
+    socket.on("user", (user) => {
+      console.log("New User registered:", user);
+      setAllUsers((prevUsers) => [...prevUsers, user]);
+    });
+    return () => socket.disconnect();
+  }, []);
 
   return (
     <div>

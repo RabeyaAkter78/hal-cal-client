@@ -4,7 +4,7 @@ const layout = ({ children }) => {
   return (
     <div>
       <div className="w-[100%] h-[100%]">
-        <div className=" ">{children}</div>
+        <div className="bg-emerald-100 ">{children}</div>
       </div>
     </div>
   );

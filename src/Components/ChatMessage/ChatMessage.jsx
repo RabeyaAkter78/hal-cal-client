@@ -37,7 +37,7 @@ const ChatMessage = () => {
         <LogOut />
       </div>
 
-      <div className="w-[75%] h-[80%] bg-neutral-300">
+      <div className="w-[75%] h-[100%] bg-neutral-300">
         {selectedUser ? (
           <DynamicUserItem selectedUser={selectedUser} />
         ) : (
