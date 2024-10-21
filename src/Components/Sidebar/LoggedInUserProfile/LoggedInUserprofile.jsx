@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const LoggedInUserprofile = () => {
@@ -20,7 +21,8 @@ const LoggedInUserprofile = () => {
       <div className="flex flex-col items-center justify-center">
         {loggedInUser ? (
           <>
-            <img
+            <Image
+              height={100} width={100}
               src={
                 loggedInUser.avatarUrl
                   ? `http://localhost:5000${loggedInUser.avatarUrl}`

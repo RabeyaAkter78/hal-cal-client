@@ -64,7 +64,7 @@ export default function LoginComponent() {
 
   return (
     <div>
-      <div className="bg-violet-800">
+      <div className="bg-violet-800 h-screen">
         <div className="container mx-auto pt-20">
           <h1 className="text-center text-4xl font-bold text-white">Login</h1>
 

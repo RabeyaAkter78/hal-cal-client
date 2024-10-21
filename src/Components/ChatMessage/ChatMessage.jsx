@@ -29,15 +29,15 @@ const ChatMessage = () => {
   }, [selectedUser]);
 
   return (
-    <div className="container mx-auto flex h-screen">
-      <div className="w-[25%] h-[90%] bg-[#cde8e5]">
+    <div className="container mx-auto flex ">
+      <div className="w-[25%] h-screen bg-pink-100 ">
         <LoggedInUserprofile />
         <SiddeBarHeader />
         <AllUser onUserSelect={setSelectedUser} />
         <LogOut />
       </div>
 
-      <div className="w-[75%] h-[90%] bg-neutral-300">
+      <div className="w-[75%] h-[90%] ">
         {selectedUser ? (
           <DynamicUserItem selectedUser={selectedUser} />
         ) : (

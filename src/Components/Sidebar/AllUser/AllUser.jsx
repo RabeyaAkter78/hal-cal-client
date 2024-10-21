@@ -57,7 +57,7 @@ const AllUser = ({ onUserSelect }) => {
 
   return (
     <div>
-      <div className="flex-1 overflow-y-auto p-4">
+      <div className="  h-[650px] overflow-y-scroll">
         {Array.isArray(allUsers) && allUsers.length > 0 ? (
           allUsers.map((user) => {
             const imageUrl = user?.avatarUrl
@@ -65,25 +65,27 @@ const AllUser = ({ onUserSelect }) => {
               : "/default-avatar.png";
 
             return (
-              <div
-                key={user._id}
-                className={`mb-2 flex items-center gap-4 rounded-lg py-2 hover:bg-slate-200 ${
-                  selectedUser === user._id ? "bg-gray-200" : ""
-                }`}
-                onClick={() => handleUserSelect(user)}
-              >
-                <Image
-                  className="rounded-full border-2 border-[#8babd8]"
-                  src={imageUrl}
-                  height={40}
-                  width={40}
-                  alt="user image"
-                />
-                <div>
-                  <h1 className="text-md font-bold">
-                    {user?.name || "User name"}
-                  </h1>
-                  <p>{user?.lastMessage || "Last Message"}</p>
+              <div key={user._id} className={` ${selectedUser === user._id ? "bg-red-300  text-white hover:bg-red-300" : "hover:bg-red-200"
+                }`}>
+
+                <div
+                  className={`px-4 py-2 mb-2 flex justify-start items-center gap-2 `}
+                  onClick={() => handleUserSelect(user)}
+                >
+
+                  <Image
+                    className="rounded-full border-2 border-red-300 h-10 w-10 object-cover"
+                    src={imageUrl}
+                    height={20}
+                    width={20}
+                    alt="user image"
+                  />
+                  <div>
+                    <h1 className="text-md font-bold">
+                      {user?.name || "User name"}
+                    </h1>
+                    <p>{user?.lastMessage || "Last Message"}</p>
+                  </div>
                 </div>
               </div>
             );

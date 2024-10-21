@@ -18,7 +18,7 @@ const LogOut = () => {
   const handleLogout = () => {
     // Clear user-related data from local storage
     localStorage.removeItem("user");
-    localStorage.removeItem("selectedUser"); 
+    localStorage.removeItem("selectedUser");
 
     // Redirect to the login page
     window.location.href = "/login";
@@ -26,7 +26,7 @@ const LogOut = () => {
 
   return (
     <div>
-      <div className="my-10 px-2 flex items-center justify-center">
+      <div className=" px-2 flex items-center justify-center">
         <Button block onClick={handleLogout}>
           Log Out
         </Button>
