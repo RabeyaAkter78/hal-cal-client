@@ -136,6 +136,12 @@ const DynamicUserItem = ({ selectedUser }) => {
             <input
               value={text}
               onChange={(e) => setText(e.target.value)}
+              onKeyPress={(e) => {
+                if (e.key === "Enter") {
+                  sendMessage();
+
+                }
+              }}
               className="border shadow-lg px-4 py-2 rounded-xl w-[500px]"
               placeholder="Type Message Here..."
             />
