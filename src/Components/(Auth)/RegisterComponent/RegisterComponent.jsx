@@ -43,7 +43,7 @@ function RegisterPage() {
     }
 
     try {
-      const res = await fetch("https://hal-cal-server-utupj450w-rabeyaakter78s-projects.vercel.app/auth", {
+      const res = await fetch("https://hal-cal-server-2.onrender.com/auth", {
         method: "POST",
         headers: {},
         body: formData,
