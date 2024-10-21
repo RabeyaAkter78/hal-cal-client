@@ -25,7 +25,7 @@ const LoggedInUserprofile = () => {
               height={100} width={100}
               src={
                 loggedInUser.avatarUrl
-                  ? `http://localhost:5000${loggedInUser.avatarUrl}`
+                  ? `https://hal-cal-server-2.onrender.com/${loggedInUser.avatarUrl}`
                   : "/default-avatar.png"
               }
               alt="Logged-in User Avatar"

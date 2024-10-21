@@ -16,7 +16,7 @@ export default function LoginComponent() {
     console.log(values);
 
     try {
-      const response = await fetch("https://hal-cal-server-utupj450w-rabeyaakter78s-projects.vercel.app/auth/login", {
+      const response = await fetch("https://hal-cal-server-2.onrender.com/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
