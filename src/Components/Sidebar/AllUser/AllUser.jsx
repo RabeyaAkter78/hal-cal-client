@@ -19,7 +19,7 @@ const AllUser = ({ onUserSelect }) => {
 
   useEffect(() => {
     if (loggedinUser && loggedinUser._id) {
-      fetch(`https://hal-cal-server-utupj450w-rabeyaakter78s-projects.vercel.app/users/${loggedinUser?._id}`)
+      fetch(`https://hal-cal-server-2.onrender.com/users/${loggedinUser?._id}`)
         .then((res) => {
           if (!res.ok) {
             throw new Error("Network response was not ok");
@@ -45,7 +45,7 @@ const AllUser = ({ onUserSelect }) => {
 
   // socket:
   useEffect(() => {
-    const socket = io("http://localhost:5000");
+    const socket = io("https://hal-cal-server-2.onrender.com/");
     setSocket(socket);
     // Listen for the 'newUser' event from the server
     socket.on("user", (user) => {
@@ -61,7 +61,7 @@ const AllUser = ({ onUserSelect }) => {
         {Array.isArray(allUsers) && allUsers.length > 0 ? (
           allUsers.map((user) => {
             const imageUrl = user?.avatarUrl
-              ? `http://localhost:5000${user?.avatarUrl}`
+              ? `https://hal-cal-server-2.onrender.com/${user?.avatarUrl}`
               : "/default-avatar.png";
 
             return (
