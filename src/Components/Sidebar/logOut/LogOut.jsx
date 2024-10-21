@@ -26,8 +26,8 @@ const LogOut = () => {
 
   return (
     <div>
-      <div className=" px-2 flex items-center justify-center">
-        <Button block onClick={handleLogout}>
+      <div className=" px-2  flex items-center justify-center">
+        <Button className="font-semibold h-10" block onClick={handleLogout}>
           Log Out
         </Button>
       </div>
