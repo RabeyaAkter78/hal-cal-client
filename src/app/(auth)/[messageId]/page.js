@@ -26,7 +26,7 @@ const DynamicUserItem = ({ selectedUser }) => {
   // Initialize socket connection
   useEffect(() => {
     if (user && user?._id) {
-      const socket = io("http://localhost:5000");
+      const socket = io("https://hal-cal-server-2.onrender.com/");
       setSocket(socket);
 
       socket.on("connect", () => {
@@ -51,7 +51,7 @@ const DynamicUserItem = ({ selectedUser }) => {
   useEffect(() => {
     if (user && user?._id && selectedUser?._id) {
       fetch(
-        `https://hal-cal-server-utupj450w-rabeyaakter78s-projects.vercel.app/conversation/${user?._id}/${selectedUser?._id}`
+        `https://hal-cal-server-2.onrender.com/conversation/${user?._id}/${selectedUser?._id}`
       )
         .then((res) => res.json())
         .then((data) => setAllReceivedMessage(data))
@@ -62,7 +62,7 @@ const DynamicUserItem = ({ selectedUser }) => {
   // Fetch single user data
   useEffect(() => {
     if (selectedUser?._id) {
-      fetch(`https://hal-cal-server-utupj450w-rabeyaakter78s-projects.vercel.app/single-user/${selectedUser?._id}`)
+      fetch(`https://hal-cal-server-2.onrender.com/single-user/${selectedUser?._id}`)
         .then((res) => res.json())
         .then((data) => setSingleUser(data?.data))
         .catch((error) => console.log("Error fetching user data:", error));
@@ -97,7 +97,7 @@ const DynamicUserItem = ({ selectedUser }) => {
           <div className=" px-2 h-[10%]  flex items-center justify-between border-b border-gray-300 bg-pink-100">
             <div className="flex items-center gap-2">
               <Image
-                src={`http://localhost:5000${selectedUser?.avatarUrl}`}
+                src={`https://hal-cal-server-2.onrender.com/${selectedUser?.avatarUrl}`}
                 height={40}
                 width={40}
                 className="rounded-full border-2"

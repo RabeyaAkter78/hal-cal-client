@@ -8,18 +8,17 @@ const SingleUser = ({ user, onClick, isSelected }) => {
     ? format(new Date(user.time), "hh:mm a")
     : "";
   const imageUrl = user?.avatarUrl
-    ? `http://localhost:5000${user?.avatarUrl}`
+    ? `https://hal-cal-server-2.onrender.com/${user?.avatarUrl}`
     : "/default-avatar.png";
   return (
     <div>
       <>
         <Link onClick={onClick} href={`/${user?._id}`}>
           <div
-            className={`mb-2 flex items-center gap-4 rounded-lg py-2 hover:bg-slate-200" ${
-              isSelected
-                ? "bg-primary text-white shadow-2xl"
-                : "bg-white text-black"
-            }  flex gap-2 justify-between items-center py-2 mt-4`}
+            className={`mb-2 flex items-center gap-4 rounded-lg py-2 hover:bg-slate-200" ${isSelected
+              ? "bg-primary text-white shadow-2xl"
+              : "bg-white text-black"
+              }  flex gap-2 justify-between items-center py-2 mt-4`}
           >
             <div className=" flex gap-2 items-center">
               <Image
