@@ -1,7 +1,7 @@
 "use client";
 import io from "socket.io-client";
 import { useEffect, useState, useRef } from "react";
-import { IoMdSend } from "react-icons/io";
+import { IoIosSend } from "react-icons/io";
 import { TbMessageSearch } from "react-icons/tb";
 import { IoCall } from "react-icons/io5";
 import { BsThreeDotsVertical } from "react-icons/bs";
@@ -93,8 +93,8 @@ const DynamicUserItem = ({ selectedUser }) => {
   return (
     <div>
       {selectedUser ? (
-        <div className="h-screen relative">
-          <div className="h-[5%]  flex items-center justify-between border-b border-gray-300 bg-[#cde8e5]">
+        <div className="h-screen relative bg-pink-100">
+          <div className=" px-2 h-[10%]  flex items-center justify-between border-b border-gray-300 bg-pink-100">
             <div className="flex items-center gap-2">
               <Image
                 src={`http://localhost:5000${selectedUser?.avatarUrl}`}
@@ -114,16 +114,15 @@ const DynamicUserItem = ({ selectedUser }) => {
               <BsThreeDotsVertical className="h-5 w-5 text-[#707991]" />
             </div>
           </div>
-          <div className="pt-4 pb-5 px-10 h-[80%] overflow-y-scroll bg-[#02040a]">
+          <div className="pt-4 pb-5 px-10 h-[80%] overflow-y-scroll bg-black">
             <div className="flex flex-col">
               {allReceivedMessage.map((message, index) => (
                 <div key={index} className="mt-6 w-full">
                   <span
-                    className={`${
-                      user?._id === message?.senderId
-                        ? "bg-[#cde8e5] text-black"
-                        : "bg-[#707991] text-white float-end"
-                    } px-4 py-2 rounded-3xl`}
+                    className={`${user?._id === message?.senderId
+                      ? "bg-pink-100 text-black"
+                      : "bg-[#707991] text-white float-end"
+                      } px-4 py-2 rounded-3xl`}
                   >
                     {message?.text}
                   </span>
@@ -133,16 +132,16 @@ const DynamicUserItem = ({ selectedUser }) => {
               {/* Reference to scroll to this div */}
             </div>
           </div>
-          <div className="flex w-full justify-center pt-2">
+          <div className="flex w-full justify-center items-center pt-2 mt-4 ">
             <input
               value={text}
               onChange={(e) => setText(e.target.value)}
-              className="border shadow-lg px-4 rounded-xl w-[500px]"
+              className="border shadow-lg px-4 py-2 rounded-xl w-[500px]"
               placeholder="Type Message Here..."
             />
-            <IoMdSend
+            <IoIosSend
               onClick={sendMessage}
-              className="w-10 h-10 -ml-12 text-primary cursor-pointer text-[#156d63]"
+              className="w-8 h-8  -ml-12 text-primary cursor-pointer text-[#fca5a5]"
             />
           </div>
         </div>
