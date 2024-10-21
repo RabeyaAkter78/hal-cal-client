@@ -51,7 +51,7 @@ const DynamicUserItem = ({ selectedUser }) => {
   useEffect(() => {
     if (user && user?._id && selectedUser?._id) {
       fetch(
-        `http://localhost:5000/conversation/${user?._id}/${selectedUser?._id}`
+        `https://hal-cal-server-utupj450w-rabeyaakter78s-projects.vercel.app/conversation/${user?._id}/${selectedUser?._id}`
       )
         .then((res) => res.json())
         .then((data) => setAllReceivedMessage(data))
@@ -62,7 +62,7 @@ const DynamicUserItem = ({ selectedUser }) => {
   // Fetch single user data
   useEffect(() => {
     if (selectedUser?._id) {
-      fetch(`http://localhost:5000/single-user/${selectedUser?._id}`)
+      fetch(`https://hal-cal-server-utupj450w-rabeyaakter78s-projects.vercel.app/single-user/${selectedUser?._id}`)
         .then((res) => res.json())
         .then((data) => setSingleUser(data?.data))
         .catch((error) => console.log("Error fetching user data:", error));

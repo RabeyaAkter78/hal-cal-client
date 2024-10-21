@@ -19,7 +19,7 @@ const AllUser = ({ onUserSelect }) => {
 
   useEffect(() => {
     if (loggedinUser && loggedinUser._id) {
-      fetch(`http://localhost:5000/users/${loggedinUser?._id}`)
+      fetch(`https://hal-cal-server-utupj450w-rabeyaakter78s-projects.vercel.app/users/${loggedinUser?._id}`)
         .then((res) => {
           if (!res.ok) {
             throw new Error("Network response was not ok");
@@ -50,7 +50,7 @@ const AllUser = ({ onUserSelect }) => {
     // Listen for the 'newUser' event from the server
     socket.on("user", (user) => {
       console.log("New User registered:", user);
-      setAllUsers((prevUsers) => [...prevUsers, user]);
+      setAllUsers((prevUsers) => [user, ...prevUsers]);
     });
     return () => socket.disconnect();
   }, []);
